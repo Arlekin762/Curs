@@ -1,0 +1,28 @@
+=breadcrumb_tag do
+  %li.active
+    = @exhibit.name
+  %li
+    = link_to 'Экспонаты', exhibits_path
+  %li
+    Музей
+
+%h1= @exhibit.e_name
+
+%dl
+  %dt= Exhibit.human_attribute_name(:name)
+  %dd= @exhibit.name
+
+  %dt= Exhibit.human_attribute_name(:descr)
+  %dd= @exhibit.descr
+
+  %dt= Exhibit.human_attribute_name(:price)
+  %dd= @exhibit.price
+
+  %dt= Exhibit.human_attribute_name(:age)
+  %dd= @exhibit.age
+
+  %dt= Exhibit.human_attribute_name(:size)
+  %dd= @exhibit.size
+
+  %dt= Exhibit.human_attribute_name(:condit)
+  %dd= @exhibit.condit

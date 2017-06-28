@@ -1,0 +1,4 @@
+class Exhibit < ActiveRecord::Base
+  belongs_to :collection
+  validates :name, :descr, :price, :age, :size, :condit, :collection_id, presence :true
+end

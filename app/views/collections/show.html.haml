@@ -1,0 +1,25 @@
+=breadcrumb_tag do
+  %li.active
+    = @collection.name
+  %li
+    = link_to 'Коллекция', collection_path
+  %li
+    Тур
+
+%h1= @collection.name
+
+%dl
+  %dt= Collection.human_attribute_name(:name)
+  %dd= @collection.name
+
+  %dt= Collection.human_attribute_name(:desc)
+  %dd= @collection.desc
+
+  %dt= Collection.human_attribute_name(:start_date)
+  %dd= @collection.start_date
+
+  %dt= Collection.human_attribute_name(:finish_date)
+  %dd= @collection.finish_date
+
+
+

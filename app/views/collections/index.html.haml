@@ -1,0 +1,48 @@
+
+=breadcrumb_tag do
+  %li.active
+    Коллекции
+  %li
+    Данные о коллекции
+
+.page-header
+  %h1= t('headers.collections.index')
+
+= link_to new_collection_path, class: 'btn btn-success' do
+  = fa_icon :plus
+  = t('buttons.new.collection')
+
+
+.row
+  .col-xs-12
+    %table.table.table-hover
+      %tbody
+        - @collections.each do |collection|
+          %tr.active
+            %th= Collection.human_attribute_name(:name)
+            %td= collection.name
+          %tr
+            %th= Collection.human_attribute_name(:desc)
+            %td= collection.desc
+          %tr
+            %th= Collection.human_attribute_name(:start_date)
+            %td= collection.start_date
+          %tr
+            %th= Collection.human_attribute_name(:finish_date)
+            %td= collection.finish_date
+          %tr
+
+
+            %td
+              = link_to collection, class: 'btn btn-warning' do
+                = fa_icon :eye
+                = t('buttons.show')
+              = link_to edit_collection_path(collection), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to collection, :method => :delete,
+              :data => { :confirm => t('buttons.confirm.collection') },
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')
+            %td

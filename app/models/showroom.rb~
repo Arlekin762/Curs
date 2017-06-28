@@ -1,0 +1,4 @@
+class Showroom < ActiveRecord::Base
+  belongs_to :collection
+  validates :name, :collection_idб presence: true
+end

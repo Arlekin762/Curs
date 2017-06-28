@@ -1,0 +1,68 @@
+=breadcrumb_tag do
+  %li.active
+    = link_to 'Экспонаты', exhibits_path
+  %li
+    = t('headers.exhibits.search')
+
+
+.page-header
+  %h1= t('headers.exhibits.search')
+
+
+.container
+  = form_tag(search_exhibits_path(), :method => "get") do
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Название экспоната"
+          = text_field_tag 'search[name]', params['search']['name'], placeholder: "Название экспоната", class: 'form-control'
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Краткое описание"
+          = text_field_tag 'search[descr]', params['search']['descr'], placeholder:  "Описание экспоната", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Страховая стоимость" 
+          = text_field_tag 'search[price]', params['search']['price'], placeholder: "Страховая стоимость", class: 'form-control'
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Век создания" 
+          = text_field_tag 'search[age]', params['search']['age'], placeholder: "Век создания экспоната", class: 'form-control'
+    .row
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Габаритные размеры"
+          = text_field_tag 'search[size]', params['search']['size'], placeholder: "Габаритные размеры экспоната, включающие высоту, ширину, длину", class: 'form-control'
+      .col-md-5
+        .form-group
+          = label_tag 'search', "Условия содержания (температура, влажность и т.д.)" 
+          = text_field_tag 'search[condit]', params['search']['condit'], placeholder: "Условия содержания экспоната", class: 'form-control'  
+          
+
+    = submit_tag(:search_button, value: 'Поиск', class: 'btn btn-default')
+    = link_to exhibits_path, class: 'btn btn-warning' do
+      = fa_icon :backward
+      = t('buttons.back')
+    = link_to root_path, class: "btn btn-primary" do
+      = fa_icon "home"
+      = t('buttons.home')
+
+.index_table
+  - @exhibits.each do |exhibit|
+    .row
+      .col-md-3.center= Exhibit.human_attribute_name(:name)
+      .col-md-3.center= Exhibit.human_attribute_name(:descr)
+      .col-md-3.center= Exhibit.human_attribute_name(:price)
+      .col-md-3.center= Exhibit.human_attribute_name(:age)
+      .col-md-3.center= Exhibit.human_attribute_name(:size)
+      .col-md-3.center= Exhibit.human_attribute_name(:condit)
+    .row
+      .col-md-3.center= exhibit.name
+      .col-md-3.center= exhibit.descr
+      .col-md-3.center= exhibit.price
+      .col-md-3.center= exhibit.age
+      .col-md-3.center= exhibit.size
+      .col-md-3.center.bottom20= exhibit.condit
+      .col-md-12.center
+

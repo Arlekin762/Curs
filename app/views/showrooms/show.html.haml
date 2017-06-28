@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Название:
+  = @showroom.name
+%p
+  %b Коллекция:
+  = @showroom.collection.name
+
+= link_to 'Изменить', edit_showroom_path(@showroom)
+\|
+= link_to 'Назад', showrooms_path

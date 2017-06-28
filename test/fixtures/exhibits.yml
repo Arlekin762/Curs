@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  descr: MyString
+  price: 1.5
+  age: 1
+  size: MyString
+  condit: MyText
+  collection_id: 
+
+two:
+  name: MyString
+  descr: MyString
+  price: 1.5
+  age: 1
+  size: MyString
+  condit: MyText
+  collection_id: 
